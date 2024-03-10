@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    //alias(libs.plugins.ksp)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.room.common)
 
     //Unit testing
     testImplementation(libs.junit)
@@ -77,9 +78,8 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     //Room
-//    implementation(libs.androidx.room.compiler)
-//    implementation(libs.androidx.room.ktx)
-//    implementation(libs.androidx.room.runtime)
-//    ksp(libs.androidx.room.compiler)
-
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
 }

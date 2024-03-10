@@ -6,15 +6,16 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
-activityCompose = "1.7.0"
-composeBom = "2023.08.00"
+activityCompose = "1.8.2"
+composeBom = "2024.02.02"
 retrofit = "2.9.0"
 converterGson = "2.9.0"
 loggingInterceptor = "5.0.0-alpha.12"
-roomCompiler = "2.6.1"
-roomKtx = "2.6.1"
-roomRuntime = "2.6.1"
-roomKsp = "1.9.23-1.0.19"
+roomCompiler = "2.5.2"
+roomKtx = "2.5.2"
+roomRuntime = "2.5.2"
+roomKsp = "1.9.22-1.0.17"
+roomCommon = "2.5.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +38,7 @@ logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-intercep
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntime" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
