@@ -10,9 +10,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
+import com.android.jsb.newsapp.database.NewsAppDatabase
+import com.android.jsb.newsapp.repository.NewsRepository
 import com.android.jsb.newsapp.ui.theme.NewsAppTheme
+import com.android.jsb.newsapp.ui.viewmodel.NewsViewModel
+import com.android.jsb.newsapp.ui.viewmodel.ViewModelProviderFactory
 
 class MainActivity : ComponentActivity() {
+    private lateinit var newsViewModel: NewsViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,6 +33,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        val newsRepository = NewsRepository(NewsAppDatabase.getAppDataBase(this))
+        val newsViewModelProvider = ViewModelProviderFactory(newsRepository)
+        newsViewModel = ViewModelProvider(this, newsViewModelProvider)[NewsViewModel::class.java]
+
     }
 }
 

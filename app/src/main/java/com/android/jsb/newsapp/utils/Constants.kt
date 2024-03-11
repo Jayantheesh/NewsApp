@@ -7,5 +7,6 @@ class Constants {
         const val USA = "us"
         const val SPORTS = "sports"
         const val BUSINESS = "business"
+        const val TOP_NEWS = "top_news"
     }
 }
