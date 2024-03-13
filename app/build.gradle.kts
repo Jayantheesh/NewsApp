@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.coil.compose)
 
     //Unit testing
     testImplementation(libs.junit)

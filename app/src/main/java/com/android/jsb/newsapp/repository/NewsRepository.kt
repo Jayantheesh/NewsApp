@@ -1,5 +1,6 @@
 package com.android.jsb.newsapp.repository
 
+import androidx.lifecycle.LiveData
 import com.android.jsb.newsapp.database.NewsAPIResultsEntity
 import com.android.jsb.newsapp.database.NewsAppDatabase
 import com.android.jsb.newsapp.model.NewsAPIResponse
@@ -11,7 +12,7 @@ import retrofit2.Response
 
 class NewsRepository (private val database: NewsAppDatabase) {
 
-    val nowPlaying: Flow<List<NewsAPIResultsEntity>> = database.dao.getAllTopNews()
+    val latestNews : LiveData<List<NewsAPIResultsEntity>> = database.dao.getAllTopNews()
 
     suspend fun getAllTopNews() : Response<NewsAPIResponse> {
         val response : Response<NewsAPIResponse> = RetrofitInstance.api.getTopNews()

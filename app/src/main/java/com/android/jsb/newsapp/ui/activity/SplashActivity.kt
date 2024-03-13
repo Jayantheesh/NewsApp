@@ -41,9 +41,9 @@ class SplashActivity : ComponentActivity() {
             SplashScreen()
         }
 
-        val newsRepository = NewsRepository(NewsAppDatabase.getAppDataBase(this))
-        val newsViewModelProvider = ViewModelProviderFactory(newsRepository)
-        newsViewModel = ViewModelProvider(this, newsViewModelProvider)[NewsViewModel::class.java]
+//        val newsRepository = NewsRepository(NewsAppDatabase.getAppDataBase(this))
+//        val newsViewModelProvider = ViewModelProviderFactory(newsRepository)
+//        newsViewModel = ViewModelProvider(this, newsViewModelProvider)[NewsViewModel::class.java]
 
         Handler().postDelayed({
             startActivity(Intent(this, MainActivity::class.java))

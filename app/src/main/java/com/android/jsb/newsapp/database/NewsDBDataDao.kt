@@ -1,5 +1,6 @@
 package com.android.jsb.newsapp.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface NewsDBDataDao {
     //top news from news_results_table
     @Query("SELECT * FROM news_results_table WHERE newsCategory=\"top_news\"")
-    fun getAllTopNews() : Flow<List<NewsAPIResultsEntity>>
+    fun getAllTopNews() : LiveData<List<NewsAPIResultsEntity>>
     @Query("DELETE FROM news_results_table WHERE newsCategory=\"top_news\"")
     suspend fun clearAllTopNews()
 
