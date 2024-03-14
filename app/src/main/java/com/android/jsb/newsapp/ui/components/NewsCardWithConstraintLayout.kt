@@ -1,6 +1,8 @@
 package com.android.jsb.newsapp.ui.components
 
+import android.widget.Toast
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,6 +16,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -24,12 +27,14 @@ import com.android.jsb.newsapp.model.Article
 
 @Composable
 fun NewsCardWithConstraintLayout(article : Article) {
+    val context = LocalContext.current
     ConstraintLayout(
         modifier = Modifier.wrapContentHeight()
             .fillMaxWidth()
             .padding(5.dp)
             .border(2.dp, color = Color.Gray, shape = RectangleShape)
             .shadow(2.dp)
+            .clickable { Toast.makeText(context, article.url, Toast.LENGTH_SHORT).show() }
     ) {
         val (image, title, content) = createRefs()
 
@@ -54,7 +59,6 @@ fun NewsCardWithConstraintLayout(article : Article) {
                         end.linkTo(image.end)
                     },
                 textAlign = TextAlign.Left,
-
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp
             )
@@ -70,7 +74,6 @@ fun NewsCardWithConstraintLayout(article : Article) {
                         end.linkTo(image.end)
                     },
                 textAlign = TextAlign.Left,
-
                 fontSize = 18.sp
             )
         }
